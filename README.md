@@ -140,5 +140,5 @@ Run 'pip install -r requirements.txt' before running playbook
 
 ## Version History
 
-* 0.1
+* v1.0.0
     * Initial Release
