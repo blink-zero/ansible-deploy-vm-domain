@@ -131,9 +131,7 @@ vm_folder: "Example_Folder"
 ## Help
 
 How do I install Ansible?
-```
-Please refer to the Ansible documentation for install guidance: [Ansible Install](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
-```
+* Please refer to the Ansible documentation for install guidance: [Ansible Install](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 Why is Ansible saying X module is missing
 ```
 Run 'pip install -r requirements.txt' before running playbook
