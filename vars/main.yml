@@ -1,0 +1,43 @@
+---
+###############################
+##### vCenter Information #####
+###############################
+
+vcenter_hostname: "vc.example.com"
+vcenter_datacenter: "Datacenter_x"
+vcenter_validate_certs: false
+vcenter_username: "administrator@vsphere.local"
+timezone: "255"
+
+##### Hosts #####
+esxi_host: "172.16.0.32"
+
+####################
+##### Hardware #####
+####################
+
+##### Datastore #####
+vm_disk_datastore: "Datastore_x"
+
+disk_size: 100
+
+#### NIC #####
+vm_hw_scsi: "paravirtual"
+
+##### State #####
+vm_state: "poweredon"
+#vm_state: "powereddown"
+
+#######################
+###### Networking #####
+#######################
+
+vm_net_name: "VM Network"
+vm_net_type: "vmxnet3"
+netmask: "255.255.255.0"
+gateway: "172.16.0.1"
+dns1: "172.16.0.1"
+dns2: "172.16.0.2"
+domain: "somedomain.com"
+domain_adminuser: "service_joind"
+vm_folder: "Example_Folder"
