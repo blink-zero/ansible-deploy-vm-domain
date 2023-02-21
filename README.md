@@ -1,4 +1,4 @@
-# ansible-deploy-vm
+# Ansible Deploy VM
 
 Very Simple Ansible playbook to automate the creation of virtual machines. 
 This project was used as a base for [ansible-ad-lab](https://github.com/blink-zero/ansible-ad-lab)
