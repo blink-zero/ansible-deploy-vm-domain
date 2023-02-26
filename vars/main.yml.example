@@ -40,3 +40,10 @@ gateway: "172.16.0.1"
 dns1: "172.16.0.1"
 dns2: "172.16.0.2"
 vm_folder: "Example_Folder"
+
+#########################
+###### Domain/Realm #####
+#########################
+
+ad_domain: "example.local"
+domain_join_username: "svc_domain"

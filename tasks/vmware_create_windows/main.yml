@@ -32,8 +32,14 @@
       dns_servers:
         - "{{ dns1 }}"
         - "{{ dns2 }}"
+      dns_suffix:
+        - "{{ ad_domain }}"
       timezone: "{{ timezone }}"
       password: "{{ new_password }}"
+      domainadmin: "{{ domain_join_username }}"
+      domainadminpassword: "{{ domain_join_password }}"
+      joindomain: "{{ ad_domain }}"
+      orgname: "{{ ad_domain }}"
     wait_for_customization: yes
     wait_for_ip_address: True
   delegate_to: localhost
