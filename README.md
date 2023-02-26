@@ -3,7 +3,7 @@
 
 Very Simple Ansible playbook to automate the creation of virtual machines. This project creates multiple environment var files to use. If you are only working with one environment only use the 'main.yml' in vars and 'main.yml' in the root directory.
 
-This project was used as a base for [ansible-ad-lab](https://github.com/blink-zero/ansible-ad-lab)
+This project was used as a base for [blink-zero/ansible-ad-lab](https://github.com/blink-zero/ansible-ad-lab)
 
 ## Description
 
