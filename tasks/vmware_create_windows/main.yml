@@ -1,5 +1,5 @@
 ---
-- name: Creating Windows Virtual Machines
+- name: Creating Windows Virtual Machine/s
   vmware_guest:
     hostname: "{{ vcenter_hostname }}"
     username: "{{ vcenter_username }}"
@@ -13,7 +13,7 @@
     esxi_hostname: "{{ esxi_host }}"
     template: "{{ template_name }}"
     disk:
-      - size_gb: "{{ disk_size }}"
+      - size_gb: "{{ win_disk_size }}"
         type: thin
         datastore: "{{ vm_disk_datastore }}"
     hardware:
@@ -26,19 +26,14 @@
         netmask: "{{ netmask }}"
         gateway: "{{ gateway }}"
     customization:
+      autologon: true
       hostname: "{{ guest_hostname }}"
-      domain: "{{ domain }}"
       dns_servers:
         - "{{ dns1 }}"
         - "{{ dns2 }}"
-      dns_suffix:
-        - "{{ domain }}"
       timezone: "{{ timezone }}"
-      domainadmin: "{{ domain_adminuser}}"
-      domainadminpassword: "{{ domain_adminpassword }}"
-      joindomain: "{{ domain }}"
-      orgname: "{{ domain }}"
-      password: "{{ local_adminpassword }}"
+      password: "{{ new_password }}"
+#      domain: "{{ domain }}"
     wait_for_customization: yes
     wait_for_ip_address: True
   delegate_to: localhost
