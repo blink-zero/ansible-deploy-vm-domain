@@ -34,7 +34,6 @@
         - "{{ dns2 }}"
       timezone: "{{ timezone }}"
       password: "{{ new_password }}"
-#      domain: "{{ domain }}"
     wait_for_customization: yes
     wait_for_ip_address: True
   delegate_to: localhost

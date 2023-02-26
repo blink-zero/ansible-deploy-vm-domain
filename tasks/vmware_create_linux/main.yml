@@ -1,5 +1,5 @@
 ---
-- name: Creating Linux Virtual Machines
+- name: Creating Linux Virtual Machine/s
   vmware_guest:
     hostname: "{{ vcenter_hostname }}"
     username: "{{ vcenter_username }}"
@@ -26,11 +26,8 @@
         netmask: "{{ netmask }}"
         gateway: "{{ gateway }}"
     customization:
-#      domain: "{{ domain }}"
       dns_servers:
         - "{{ dns1 }}"
         - "{{ dns2 }}"
-#      dns_suffix:
-#        - "{{ domain }}"
     wait_for_ip_address: True
   delegate_to: localhost
