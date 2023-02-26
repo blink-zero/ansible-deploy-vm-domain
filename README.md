@@ -5,19 +5,6 @@ Very Simple Ansible playbook to automate the creation of virtual machines. This 
 
 This project was used as a base for [ansible-ad-lab](https://github.com/blink-zero/ansible-ad-lab)
 
-## Table Of Contents
-
-1. [Description](https://github.com/blink-zero/ansible-ad-lab#description)
-1. [Playbook Structure](https://github.com/blink-zero/ansible-ad-lab#playbook-structure)
-1. [Getting Started](https://github.com/blink-zero/ansible-ad-lab#getting-started)
-1. [Dependancies](https://github.com/blink-zero/ansible-ad-lab/tree/v1.3.0-dev#dependencies)
-1. [Running The Playbook](https://github.com/blink-zero/ansible-ad-lab#running-the-playbook)
-1. [Examples](https://github.com/blink-zero/ansible-ad-lab#examples)
-1. [Help](https://github.com/blink-zero/ansible-ad-lab#help)
-1. [Version History](https://github.com/blink-zero/ansible-ad-lab#version-history)
-1. [Contributing](https://github.com/blink-zero/ansible-ad-lab#contributing)
-1. [Acknowledgements](https://github.com/blink-zero/ansible-ad-lab#acknowledgments)
-
 ## Description
 
 The build consists of both Windows and Linux machines. The amount of VM's deployed is customisable through the inventory file. If you only need windows then ensure that the lin option is deselected and vis versa for linux.
