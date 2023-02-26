@@ -56,7 +56,7 @@ ansible-deploy-vm
             * [Ubuntu 22.04](https://releases.ubuntu.com/22.04/)
 
 * Ansible - Tested on: Version 2.9.27
-    * See [requirements.txt](https://github.com/blink-zero/ansible-ad-lab/blob/main/requirements.txt) for other dependancies
+    * See [requirements.txt]() for other dependancies
     * [community.vmware collection](https://docs.ansible.com/ansible/latest/collections/community/vmware/index.html), `ansible-galaxy collection install community.vmware`
 
 ## Running the Playbook
