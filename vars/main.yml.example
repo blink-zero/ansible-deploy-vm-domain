@@ -47,3 +47,16 @@ vm_folder: "Example_Folder"
 
 ad_domain: "example.local"
 domain_join_username: "svc_domain"
+
+##################
+###### Linux #####
+##################
+
+# Username of template user with sudo permissions
+lin_username: "administrator"
+ad_centos_ou_membership: OU=Computers,DC=lab,DC=example,DC=local
+ad_ubu_ou_membership: CN=Computers,DC=lab,DC=example,DC=local
+
+# Convert this to prompt in main/dev/test/prod/stage
+lin_password: "somepassword"
+
