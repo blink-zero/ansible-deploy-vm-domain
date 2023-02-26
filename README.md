@@ -24,6 +24,10 @@ ansible-deploy-vm
 |   └── main.yml.example
 ├── inventory_custom.ini.example
 ├── main.yml
+├── staging.yml
+├── development.yml
+├── testing.yml
+├── production.yml
 ├── requirements.txt
 └── README.md
 ```
@@ -31,6 +35,10 @@ ansible-deploy-vm
 - `vars/`: directory to save variable files.
 - `inventory_custom.ini.example`: example inventory of machines to create.
 - `main.yml`: main playbook in root folder.
+- `staging.yml`: staging playbook in root folder.
+- `development.yml`: dev playbook in root folder.
+- `testing.yml`: test playbook in root folder.
+- `production.yml`: prod playbook in root folder.
 - `requirements.txt`: dependancies for playbook to run.
 - `README.md`: instructions and links related to this playbook.
 
