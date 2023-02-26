@@ -1,7 +1,7 @@
 # Ansible Deploy VM (Virtual Machine)
-## No Domain/Realm Version
-### Access the domain/realm version of this playbook [here]()
+
 <img alt="GitHub Release Date" src="https://img.shields.io/badge/Tested%20with%20Ansible%20version-2.9.27-orange?style=for-the-badge">
+### Access the domain/realm version of this playbook [here]()
 
 Very Simple Ansible playbook to automate the creation of virtual machines. 
 
