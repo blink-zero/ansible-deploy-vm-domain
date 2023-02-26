@@ -11,13 +11,17 @@
       prompt: "Enter new password for Windows local administrator account"
       private: yes
     - name: "domain_join_password"
-      prompt: "Enter the password for domain user {{ ad_domain}} - {{domain_join_username}}"
+      prompt: "Enter the password for domain user {{ ad_domain}} - {{ domain_join_username }}"
+      private: yes
+    - name: "lin_password"
+      prompt: "Enter the password for linux template machine user - {{ lin_username }}"
       private: yes
   tasks:
     - set_fact:
         vcenter_password: "{{ vcenter_password }}"
         new_password: "{{ new_password }}"
         domain_join_password: "{{ domain_join_password }}"
+        lin_password: "{{ lin_password }}"
 
 - name: Build Windows Environment
   hosts: win
@@ -46,6 +50,7 @@
   vars:
     - vcenter_password: "{{ hostvars['localhost']['vcenter_password'] }}"
     - domain_join_password: "{{ hostvars['localhost']['domain_join_password'] }}"
+    - lin_password: "{{ hostvars['localhost']['lin_password'] }}"
   tasks:
     - import_tasks: tasks/vmware_create_linux/main.yml
   serial: 1
