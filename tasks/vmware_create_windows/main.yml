@@ -27,7 +27,7 @@
         gateway: "{{ gateway }}"
     customization:
       autologon: true
-      autoLogonCount: 1
+      autologoncount: 1
       hostname: "{{ guest_hostname }}"
       dns_servers:
         - "{{ dns1 }}"
