@@ -1,7 +1,9 @@
-# Ansible Deploy VM
+# Ansible Deploy VM (Virtual Machine)
+<img alt="GitHub Release Date" src="https://img.shields.io/badge/Tested%20with%20Ansible%20version-2.9.27-orange?style=for-the-badge">
 
-Very Simple Ansible playbook to automate the creation of virtual machines. 
-This project was used as a base for [ansible-ad-lab](https://github.com/blink-zero/ansible-ad-lab)
+Very Simple Ansible playbook to automate the creation of virtual machines. This project creates multiple environment var files to use. If you are only working with one environment only use the 'main.yml' in vars and 'main.yml' in the root directory.
+
+This project was used as a base for [blink-zero/ansible-ad-lab](https://github.com/blink-zero/ansible-ad-lab)
 
 ## Description
 
@@ -15,17 +17,19 @@ The code can be easily modified to suit specific lab environments by modifying t
 ansible-deploy-vm
 ├── tasks
 |   ├── vmware_create_windows
+|     └── main.yml
 |   └── vmware_create_linux
+|     └── main.yml
 ├── vars
-|   └── main.yml
-├── inventory_custom.ini
+|   └── main.yml.example
+├── inventory_custom.ini.example
 ├── main.yml
 ├── requirements.txt
 └── README.md
 ```
 - `tasks/`: directory containing tasks that will be run by the playbook.
 - `vars/`: directory to save variable files.
-- `inventory_custom.ini`: inventory of machines to create.
+- `inventory_custom.ini.example`: example inventory of machines to create.
 - `main.yml`: main playbook in root folder.
 - `requirements.txt`: dependancies for playbook to run.
 - `README.md`: instructions and links related to this playbook.
@@ -35,29 +39,27 @@ ansible-deploy-vm
 ### Dependencies
 
 * VMware vCenter (vSphere) Environment
-    * Tested on:
-        * 7.0.1 U
+    * Tested on: Version 7.0.3
 
-* VMware templated virtual machines (Using [Packer](https://www.packer.io/)) - Created using [packer-examples-for-vsphere](https://github.com/vmware-samples/packer-examples-for-vsphere)
+* VMware templated virtual machines - Template Naming Convention Example `linux-ubuntu-22.04-lts-v23.01`
     * Tested and working with:
         * Windows
-            * Windows Server 2019 Datacenter
-            * Windows Server 2019 Core
-            * Windows Server 2022 Datacenter
-            * Windows Server 2022 Core
-            * Windows 10 Enterprise
+            * [Windows Server 2019 Datacenter](https://www.microsoft.com/en-us/evalcenter/download-windows-server-2019)
+            * [Windows Server 2019 Core](https://www.microsoft.com/en-us/evalcenter/download-windows-server-2019)
+            * [Windows Server 2022 Datacenter](https://www.microsoft.com/en-us/evalcenter/download-windows-server-2022)
+            * [Windows Server 2022 Core](https://www.microsoft.com/en-us/evalcenter/download-windows-server-2022)
+            * [Windows 10 Enterprise](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-10-enterprise)
         * Linux
-            * CentOS 7.9
-            * Ubuntu 18.04
-            * Ubuntu 20.04
-            * Ubuntu 22.04
-* Ansible
-    * [community.vmware collection](https://docs.ansible.com/ansible/latest/collections/community/vmware/index.html)
-    * See requirements.txt for other dependancies
+            * [CentOS 7.9](https://www.centos.org/download/)
+            * [Ubuntu 18.04](https://releases.ubuntu.com/18.04/)
+            * [Ubuntu 20.04](https://releases.ubuntu.com/20.04/)
+            * [Ubuntu 22.04](https://releases.ubuntu.com/22.04/)
+
+* Ansible - Tested on: Version 2.9.27
+    * See [requirements.txt]() for other dependancies
+    * [community.vmware collection](https://docs.ansible.com/ansible/latest/collections/community/vmware/index.html), `ansible-galaxy collection install community.vmware`
 
 ## Running the Playbook
-
-* [Install Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 
 On your Ansible Control Node:
 
@@ -66,9 +68,17 @@ On your Ansible Control Node:
 git clone https://github.com/blink-zero/ansible-deploy-vm.git
 ```
 * Change dir to cloned dir
+```sh
+cd ansible-ad-vm
+```
 * Install requirements
 ```sh
 pip install -r requirements.txt
+```
+* Run [config.sh]() to rename example var files and inventory file
+```sh
+chmod +x config.sh
+./config.sh
 ```
 * Modify vars/main.yml (See Examples)
 
@@ -79,6 +89,18 @@ pip install -r requirements.txt
 ansible-playbook main.yml -i inventory_custom.ini
 ```
 * Enter in passwords when prompted
+
+## Extra Environments (Optional Configuration)
+
+If you have multiple environments, as part of the config.sh process, multiple environment files will be created (vars/xxx.yml and environment specific playbooks).
+
+Modify the appropriate vars files according to your environment and run the playbook corresponding to it.
+
+### Example
+
+* After modifying the vars/development.yml file.
+
+Run: `ansible-playbook development.yml -i inventory_development.ini`
 
 
 ## Examples
@@ -127,18 +149,32 @@ vm_folder: "Example_Folder"
 ; 172.16.0.63 inventory_guest_hostname='LT-UBUSERVER02' inventory_guest_vcpu='2' inventory_guest_vram='4096' inventory_template_name='linux-ubuntu-20.04-lts-v23.01' inventory_vm_guestid='ubuntu64Guest'
 ; 172.16.0.64 inventory_guest_hostname='LT-UBUSERVER03' inventory_guest_vcpu='2' inventory_guest_vram='4096' inventory_template_name='linux-ubuntu-22.04-lts-v23.01' inventory_vm_guestid='ubuntu64Guest'
 ```
+> Note:
+> Comment out lines with ';' to disable building that machine.
 
 ## Help
 
-How do I install Ansible?
+> How do I install Ansible?
 * Please refer to the Ansible documentation for install guidance: [Ansible Install](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 
-Why is Ansible saying X module is missing
-```
-Run 'pip install -r requirements.txt' before running playbook
-```
+> Why is Ansible saying X module is missing
+* Run `pip install -r requirements.txt` before running playbook
 
 ## Version History
-
+* v1.0.1
+    * Added environment specific files
+    * Modified config.sh
 * v1.0.0
     * Initial Release
+
+## License
+
+MIT
+
+## Authors
+
+- Travis Anderson ([@blink-zero](https://github.com/blink-zero/))
+
+## Contributing
+
+Feel free to open issues, contribute and submit your Pull Requests.
