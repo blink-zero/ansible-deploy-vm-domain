@@ -1,9 +1,11 @@
 # Ansible Deploy VM (Virtual Machine)
-## No Domain/Realm Version
+## No Domain/Realm Version - Access the domain/realm version of this playbook [here]()
 
 <img alt="GitHub Release Date" src="https://img.shields.io/badge/Tested%20with%20Ansible%20version-2.9.27-orange?style=for-the-badge">
 
 Very Simple Ansible playbook to automate the creation of virtual machines. 
+
+
 
 >This project creates multiple environment var files to use. If you are only working with one environment only use the 'main.yml' in vars and 'main.yml' in the root directory.
 
