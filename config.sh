@@ -1,32 +1,24 @@
 #!/bin/bash
 
 # Save the path to the "vars" folder in a variable
-vars_path="$(pwd)/vars"
 
 echo
-echo "> Renaming the example variables files..."
+echo "> Copying the example variables file..."
 
-# Find all files in the "vars" folder that end with .yml.example
-for file in "$vars_path"/*.yml.example; do
-    # Get the base filename without the extension
-    filename=$(basename "$file" .yml.example)
-    # Rename the file with the new extension
-    mv "$file" "${vars_path}/${filename}.yml"
-done
-
-# Save the path to the "inventory" in variable
-inv_path="$(pwd)"
+cp vars/main.yml.example vars/staging.yml
+cp vars/main.yml.example vars/production.yml
+cp vars/main.yml.example vars/development.yml
+cp vars/main.yml.example vars/testing.yml
+cp vars/main.yml.example vars/main.yml
 
 echo
-echo "> Renaming the example inventory file..."
+echo "> Copying the example inventory file..."
 
-# Find all files that end in .ini.example
-for file in "$inv_path"/*.ini.example; do
-    # Get the base filename without the extension
-    filename=$(basename "$file" .ini.example)
-    # Rename the file with the new extension
-    mv "$file" "${inv_path}/${filename}.ini"
-done
+cp inventory_custom.ini.example inventory_custom.ini
+cp inventory_custom.ini.example inventory_staging.ini
+cp inventory_custom.ini.example inventory_production.ini
+cp inventory_custom.ini.example inventory_development.ini
+cp inventory_custom.ini.example inventory_testing.ini
 
 echo
 echo "> Done."
