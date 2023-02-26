@@ -7,17 +7,13 @@
     - name: "vcenter_password"
       prompt: "Enter password for {{ vcenter_username }} - {{ vcenter_hostname }}"
       private: yes
-    - name: "local_adminpassword"
-      prompt: "Enter password for Windows local administrator template"
-      private: yes
-    - name: domain_adminpassword
-      prompt: "Enter password for {{ domain }} {{ domain_adminuser }}"
+    - name: "new_password"
+      prompt: "Enter new password for Windows local administrator account"
       private: yes
   tasks:
     - set_fact:
         vcenter_password: "{{ vcenter_password }}"
-        local_adminpassword: "{{ local_adminpassword }}"
-        domain_adminpassword: "{{ domain_adminpassword }}"
+        new_password: "{{ new_password }}"
 
 - name: Build Windows Environment
   hosts: win
@@ -29,8 +25,7 @@
       - include_vars: vars/main.yml
   vars:
     - vcenter_password: "{{ hostvars['localhost']['vcenter_password'] }}"
-    - local_adminpassword: "{{ hostvars['localhost']['local_adminpassword'] }}"
-    - domain_adminpassword: "{{ hostvars['localhost']['domain_adminpassword'] }}"
+    - new_password: "{{ hostvars['localhost']['new_password'] }}"
   tasks:
     - import_tasks: tasks/vmware_create_windows/main.yml
   serial: 1

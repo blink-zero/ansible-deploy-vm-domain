@@ -13,7 +13,7 @@
     esxi_hostname: "{{ esxi_host }}"
     template: "{{ template_name }}"
     disk:
-      - size_gb: "{{ disk_size }}"
+      - size_gb: "{{ lin_disk_size }}"
         type: thin
         datastore: "{{ vm_disk_datastore }}"
     hardware:
@@ -26,11 +26,11 @@
         netmask: "{{ netmask }}"
         gateway: "{{ gateway }}"
     customization:
-      domain: "{{ domain }}"
+#      domain: "{{ domain }}"
       dns_servers:
         - "{{ dns1 }}"
         - "{{ dns2 }}"
-      dns_suffix:
-        - "{{ domain }}"
+#      dns_suffix:
+#        - "{{ domain }}"
     wait_for_ip_address: True
   delegate_to: localhost

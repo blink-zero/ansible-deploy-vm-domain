@@ -19,7 +19,8 @@ esxi_host: "172.16.0.32"
 ##### Datastore #####
 vm_disk_datastore: "Datastore_x"
 
-disk_size: 100
+lin_disk_size: 40
+win_disk_size: 100
 
 #### NIC #####
 vm_hw_scsi: "paravirtual"
