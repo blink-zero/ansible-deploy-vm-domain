@@ -191,7 +191,7 @@
   expect:
     command: /bin/bash -c "/usr/bin/kinit -V {{ domain_join_username }}"
     responses:
-      (?i)Password: "{{ ad_new_domain_admin_password }}"
+      (?i)Password: "{{ domain_join_password }}"
   become: true
   when: template_name.find("ubuntu") != -1
   delegate_to: '{{ inventory_hostname }}'
