@@ -128,7 +128,7 @@
 
 - name: Ubuntu 18.04 - Install the required packages
   apt:
-    name: realmd,sssd,adcli,krb5-user,sssd-tools,samba-common,packagekit,samba-common-bin,samba-libs,ntpdate,ntp,python-pip
+    name: realmd,sssd,adcli,krb5-user,sssd-tools,samba-common,packagekit,samba-common-bin,samba-libs,ntpdate,ntp,python3-pip
     state: present
   become: true
   when: template_name.find("ubuntu-18.04") != -1
