@@ -180,13 +180,6 @@
   when: template_name.find("ubuntu") != -1
   delegate_to: '{{ inventory_hostname }}'
 
-- name: Ubuntu - Discover realm
-  command: /bin/bash -c "/usr/sbin/realm discover {{ ad_domain }}"
-  register: realm_discover_results
-  become: true
-  when: template_name.find("ubuntu") != -1
-  delegate_to: '{{ inventory_hostname }}'
-
 - name: Ubuntu - Create kerberos ticket
   expect:
     command: /bin/bash -c "/usr/bin/kinit -V {{ domain_join_username }}"
