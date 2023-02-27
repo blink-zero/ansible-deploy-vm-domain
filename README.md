@@ -107,7 +107,7 @@ Modify the appropriate vars files according to your environment and run the play
 
 ### Example
 
-* After modifying the vars/development.yml file.
+* After modifying the [vars/development.yml](https://github.com/blink-zero/ansible-deploy-vm-domain/tree/main/vars) file.
 
 Run: `ansible-playbook development.yml -i inventory_development.ini`
 
