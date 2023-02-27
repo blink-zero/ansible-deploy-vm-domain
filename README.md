@@ -1,13 +1,10 @@
-> Currently a work in progress ... 
-
 # Ansible Deploy VM (Virtual Machine) - Domain Version
 
 <img alt="GitHub Release Date" src="https://img.shields.io/badge/Tested%20with%20Ansible%20version-2.9.27-orange?style=for-the-badge">
 
-### Access the non domain/realm version of this playbook [here](https://github.com/blink-zero/ansible-deploy-vm)
+### Access the non-domain/realm version of this playbook [here](https://github.com/blink-zero/ansible-deploy-vm)
 
 Very Simple Ansible playbook to automate the creation of virtual machines. 
-
 
 
 >This project creates multiple environment var files to use. If you are only working with one environment only use the 'main.yml' in vars and 'main.yml' in the root directory.
@@ -33,10 +30,7 @@ ansible-deploy-vm
 |   └── main.yml.example
 ├── inventory_custom.ini.example
 ├── main.yml
-├── staging.yml
-├── development.yml
-├── testing.yml
-├── production.yml
+├── config.sh
 ├── requirements.txt
 └── README.md
 ```
@@ -44,10 +38,7 @@ ansible-deploy-vm
 - `vars/`: directory to save variable files.
 - `inventory_custom.ini.example`: example inventory of machines to create.
 - `main.yml`: main playbook in root folder.
-- `staging.yml`: staging playbook in root folder.
-- `development.yml`: dev playbook in root folder.
-- `testing.yml`: test playbook in root folder.
-- `production.yml`: prod playbook in root folder.
+- `config.sh`: copies example files (vars/playbook/inventories) into seperate files to edit.
 - `requirements.txt`: dependancies for playbook to run.
 - `README.md`: instructions and links related to this playbook.
 
@@ -77,6 +68,7 @@ ansible-deploy-vm
     * [community.vmware collection](https://docs.ansible.com/ansible/latest/collections/community/vmware/index.html), `ansible-galaxy collection install community.vmware`
 
 ## Running the Playbook
+> Use only the main.yml playbook if only dealing with one environment. This matches up with vars/main.yml.
 
 On your Ansible Control Node:
 
