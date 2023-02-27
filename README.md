@@ -101,6 +101,8 @@ ansible-playbook main.yml -i inventory_custom.ini
 
 ## Extra Environments (Optional Configuration)
 
+> config.sh must have been run for this to work.
+
 If you have multiple environments, as part of the config.sh process, multiple environment files will be created (vars/xxx.yml and environment specific playbooks).
 
 Modify the appropriate vars files according to your environment and run the playbook corresponding to it.
