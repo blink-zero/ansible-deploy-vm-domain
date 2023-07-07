@@ -65,6 +65,7 @@ ansible-deploy-vm
 
 * Ansible - Tested on: Version 2.9.27
     * See [requirements.txt]() for other dependancies
+    * [sshpass](https://www.redhat.com/sysadmin/ssh-automation-sshpass) may also be required, `yum/apt install sshpass`
     * [community.vmware collection](https://docs.ansible.com/ansible/latest/collections/community/vmware/index.html), `ansible-galaxy collection install community.vmware`
 
 ## Running the Playbook
